@@ -59,7 +59,11 @@ This project is about hosting the choosen [web-application](https://github.com/C
     ```bash
     sudo apt-get install apache2 libapache2-mod-wsgi python-dev postgresql
     ```
+4. Install Dependencies and complete the updation process using `dist-upgrade`
 
+    ```bash
+    sudo apt-get dist-upgrade
+    ```
 ***
 ***
 
@@ -121,9 +125,15 @@ This gives the sudo rights to the user 'grader'.
     sudo nano /etc/ssh/sshd_config
     ```
 
-     Also disable password login such as login is only allowed through `public-private` key by making 
-     
-     `PasswordAuthentication` ~~no~~ `yes` in the same file.
+    - `Disable password login` by making login through **public-private** key by making changes as shown in below in **'/etc/ssh/sshd_config'**
+    
+        `PasswordAuthentication` ~~no~~ `yes`
+    
+    - `Disable remote root login` as well by making changes as shown below in **'/etc/ssh/sshd_config'**
+
+        `PermitRootLogin` ~~prohibit-password~~ `no`
+
+
 
 3. Now restart the `ssh service so that the user **grader** can connect to it using its private key.
     ```bash
